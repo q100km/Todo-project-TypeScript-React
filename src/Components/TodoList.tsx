@@ -3,11 +3,7 @@ import TodoItem from './TodoItem'
 import { ToDo } from '../App'
 
 type TodoListProps = {
-  todoArray: {
-    id: number
-    completed: boolean
-    text: string
-  }[]
+  todoArray: ToDo[]
   handleDelete(id: number): void
   handleComplited(todo: ToDo): void
 }
