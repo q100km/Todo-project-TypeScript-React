@@ -14,7 +14,7 @@ type TodoItemProps = {
 const TodoItem: FC<TodoItemProps> = ({ todo, handleDelete, handleComplited }) => {
   const { text, completed } = todo
 
-  const isCompletedTodo = completed ? 'checkBtnA' : 'checkBtn'
+  const isCompletedTodo = completed ? 'checkBtn-completed' : 'checkBtn'
 
   return (
     <div className='todo-item'>

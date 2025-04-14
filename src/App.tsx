@@ -21,14 +21,14 @@ function App() {
     }
     setTodo([...todo, newTodo])
   }
-
+  //                       Удалить конкретную todo
   const handleDelete = (id: number): void => {
     const filtredArray = todo.filter((todo) => {
       return todo.id !== id
     })
     setTodo(filtredArray)
   }
-
+  //                      Завершить конкретную todo
   const handleComplited = (todoTarget: ToDo): void => {
     setTodo(
       todo.map((oneTodo) => {
@@ -36,28 +36,28 @@ function App() {
       })
     )
   }
-
-  const handleDelOnlyCompleted = (): void => {
+  //                     Удалить все завершенные todo
+  const handleDeleteOnlyCompleted = (): void => {
     setTodo(
       todo.filter((oneTodo) => {
         return !oneTodo.completed
       })
     )
   }
-
+  //                     Удалить все todo
   const handleDeleteAll = (): void => {
     setTodo([])
   }
 
   const isTodoListEmpty = !todo.length
 
-  const hasCompletedTodos = todo.some((el) => el.completed)
+  const hasCompletedTodos = todo.some((todo: ToDo) => todo.completed)
 
-  const sumCompletedTodo = todo.reduce((sum: number, el: ToDo) => {
-    return el.completed ? sum + 1 : sum
+  const sumCompletedTodo = todo.reduce((sum: number, todo: ToDo) => {
+    return todo.completed ? sum + 1 : sum
   }, 0)
 
-  console.log(todo, 'TODO ARRAY')
+  // console.log(todo, 'TODO ARRAY')
 
   return (
     <div className='container'>
@@ -67,7 +67,7 @@ function App() {
         delete all
       </Button>
 
-      <Button onClick={handleDelOnlyCompleted} disabled={!hasCompletedTodos} title={`Удалить отмеченные Todo`}>
+      <Button onClick={handleDeleteOnlyCompleted} disabled={!hasCompletedTodos} title={`Удалить отмеченные Todo`}>
         delete checked
       </Button>
 
