@@ -32,7 +32,7 @@ function App() {
   const handleComplited = (todoTarget: ToDo): void => {
     setTodo(
       todo.map((oneTodo) => {
-        return oneTodo.id === todoTarget.id ? { ...oneTodo, completed: !oneTodo.completed } : { ...oneTodo }
+        return oneTodo.id === todoTarget.id ? { ...oneTodo, completed: !oneTodo.completed } : oneTodo
       })
     )
   }
@@ -51,13 +51,13 @@ function App() {
 
   const isTodoListEmpty = !todo.length
 
-  const hasCompletedTodos = todo.some((todo: ToDo) => todo.completed)
-
   const sumCompletedTodo = todo.reduce((sum: number, todo: ToDo) => {
     return todo.completed ? sum + 1 : sum
   }, 0)
 
-  // console.log(todo, 'TODO ARRAY')
+  const hasCompletedTodos = sumCompletedTodo !== 0
+
+  // console.log(todo, 'TODO ARRAY')2
 
   return (
     <div className='container'>

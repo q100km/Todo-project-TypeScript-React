@@ -1,12 +1,9 @@
 import { FC } from 'react'
 import { RiTodoFill, RiDeleteBin5Fill, RiCheckboxFill } from 'react-icons/ri'
+import { ToDo } from '../App'
 
 type TodoItemProps = {
-  todo: {
-    id: number
-    completed: boolean
-    text: string
-  }
+  todo: ToDo
   handleDelete(): void
   handleComplited(): void
 }
